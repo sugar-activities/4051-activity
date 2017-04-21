@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to edit Help and contribute &mdash; Sugar 0.106 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.106',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Sugar 0.106 documentation" href="index.html" />
+    <link rel="next" title="Writing in reStructuredText" href="restructuredtext.html" />
+    <link rel="prev" title="Credits and Copyright" href="credits_copyright.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="restructuredtext.html" title="Writing in reStructuredText"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="credits_copyright.html" title="Credits and Copyright"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Sugar 0.106 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="how-to-edit-help-and-contribute">
+<h1>How to edit Help and contribute<a class="headerlink" href="#how-to-edit-help-and-contribute" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Page version for review.</p>
+<p class="last">Corrections, omissions, and feedback most welcome, iain at browndouglas dot plus dot com. 28 November 2013.</p>
+</div>
+<p>Help displays documentation for Sugar and the XO laptop.</p>
+<p>This version of Help contains all the source files and images, and now a <a class="reference internal" href="sugar_features.html#view-source"><em>View source</em></a> button. These files can be edited within Help, and displayed. Help is now capable of producing new pages for Help, or making completely fresh documentation.</p>
+<p>This page aims to show how to write attractive documentation, which, if users share their work, could be used to improve Help. To contribute you only need to:</p>
+<ul class="simple">
+<li>Create a development environment</li>
+<li>Make changes</li>
+<li>Contribute the changes</li>
+</ul>
+<div class="section" id="create-a-development-environment">
+<h2>Create a development environment<a class="headerlink" href="#create-a-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>XO Help.xo 17 already includes the source files ready to use.</p>
+<p>Alternatively, you can use git to get Help Activity with the most recent sources included. If you have the Activity Help already installed, uninstall it first. Generally an Activity is uninstalled from the F3, Home View, List, by selecting the Activity, and press Erase. Where Erase is not available, you need to delete <tt class="docutils literal"><span class="pre">Help.activity</span></tt> from the folder <tt class="docutils literal"><span class="pre">~/Activities</span></tt>.</p>
+<p>The following guide assumes you <tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span></tt> from your home directory. This command will collect all the required resources.</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:godiard/help-activity.git
+</pre></div>
+</div>
+<p>You can install it in your Sugar development environment doing:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+./setup.py dev
+</pre></div>
+</div>
+<p>You need have a complete sugar environment to run &#8220;setup.py dev&#8221; if you have a error in your system, try run it in the Terminal Activity.</p>
+<p>and, when you are ready, to populate your Help pages</p>
+<div class="highlight-python"><div class="highlight"><pre>make html
+</pre></div>
+</div>
+<p>You can modify any .rst file in ~/help-activity/source/ directory or the images in the ~/help-activity/source/images/ directory.</p>
+<p>To create the new HTML files you only need do:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+make html
+</pre></div>
+</div>
+<p>If you see an error indicating that HTML cannot be built, the most likely cause is that <tt class="docutils literal"><span class="pre">python-sphinx</span></tt> is missing.</p>
+<p>To fix this, in Terminal Activity (or any terminal emulator) as root,</p>
+<div class="highlight-python"><div class="highlight"><pre>yum install python-sphinx
+</pre></div>
+</div>
+<p>or in Debian or Ubuntu derivatives,</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install python-sphinx
+</pre></div>
+</div>
+<p>In <strong>Sugar</strong> you don&#8217;t need restart Help to see the changes after running <tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt>, you just click with the secondary mouse button, and select reload.</p>
+<p>In any other, non-Sugar, Linux environment the command <tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:godiard/help-activity.git</span></tt> works to download the sources, <tt class="docutils literal"><span class="pre">./setup.py</span> <span class="pre">dev</span></tt> should be omitted, and the output of <tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt> is in <tt class="docutils literal"><span class="pre">~/help-activity/html</span></tt>, and is displayed by opening <tt class="docutils literal"><span class="pre">~/help-activity/html/index.html</span></tt> in a browser.</p>
+<div class="section" id="what-if-i-break-help">
+<h3>What if I break Help?<a class="headerlink" href="#what-if-i-break-help" title="Permalink to this headline">¶</a></h3>
+<p>In Sugar you cannot break Help. If you start to follow these instructions and get lost or make a mistake, and Help will not display correctly, you should not worry.</p>
+<p>First back up any files.rst you have already made, then visit <a class="reference external" href="http://activities.sugarlabs.org">ASLO</a> with Browse. Search for Help, and download and install a new copy of XO Help.</p>
+<p>Alternatively, experienced users might make a backup .xo before starting to work by doing:</p>
+<div class="highlight-python"><div class="highlight"><pre>./setup.py dist_xo
+</pre></div>
+</div>
+<p>This will create a directory dist and inside, an .xo file.</p>
+</div>
+<div class="section" id="tutorial-0-browse-filesystem">
+<h3>Tutorial 0 - Browse filesystem<a class="headerlink" href="#tutorial-0-browse-filesystem" title="Permalink to this headline">¶</a></h3>
+<p>In Browse and some other browsers if you type</p>
+<div class="highlight-python"><div class="highlight"><pre>file:///
+</pre></div>
+</div>
+<p>in the address bar, you will be browsing the root of your file system.</p>
+<p>Now move progressively through</p>
+<div class="highlight-python"><div class="highlight"><pre>file:///home
+
+file:///home/your-username
+
+file:///home/your-username/help-activity
+
+file:///home/your-username/help-activity/source
+</pre></div>
+</div>
+<p>You are now able to open and inspect any of the <em>source_files.rst</em> safely.</p>
+<p>We can back off again and reach</p>
+<div class="highlight-python"><div class="highlight"><pre>file:///home/your-username/help-activity/html
+</pre></div>
+</div>
+<p>and then select and display any of the output HTML files.</p>
+<p>In this page we use the convention of calling <tt class="docutils literal"><span class="pre">/home/your-username/help-activity/source</span></tt> by the shorter, <tt class="docutils literal"><span class="pre">~/help-activity/source</span></tt>.</p>
+</div>
+<div class="section" id="orientation">
+<span id="id1"></span><h3>Orientation<a class="headerlink" href="#orientation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Source</strong></p>
+<p>The two source folders we look at are filled initially by the download of Help.</p>
+<p>The directory <tt class="docutils literal"><span class="pre">~/help-activity/source/</span></tt> contains the text files we will be altering in this guide.</p>
+<p>The directory <tt class="docutils literal"><span class="pre">~/help-activity/images/</span></tt> contains all the images that are used on the various pages of Help. You can add image files to this folder, and if they are linked into documents, they will display in the <em>output</em> of the command <tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt>.</p>
+<p>In Sugar you have the ability to inspect the source files safely, using the <a class="reference internal" href="sugar_features.html#view-source"><em>View source</em></a> button on the Help icon in the Frame.</p>
+<p>The key page in navigating Help is the Index or contents page. In the <tt class="docutils literal"><span class="pre">~/help-activity/source/</span></tt> folder, <cite>index.rst</cite> is the text document which automatically provides links to all other pages in the source folder.</p>
+<p><strong>Output</strong></p>
+<p>The pages displayed in Help are the output of the command <tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt>. The files are in the folder <tt class="docutils literal"><span class="pre">~/help-activity/html/</span></tt>.</p>
+<p>Also part of the output of the command <tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt> are the files in <tt class="docutils literal"><span class="pre">~/help-activity/doctrees/</span></tt>. The role of the <tt class="docutils literal"><span class="pre">all_files.doctree</span></tt> is to interlink all the HTML pages within the rules of the underlying software.</p>
+<p>Depending on the setup of your installation there may be a number of other folders present in the <tt class="docutils literal"><span class="pre">~/help-activity/html/</span></tt> folder (for instance <tt class="docutils literal"><span class="pre">_sources</span></tt>, <tt class="docutils literal"><span class="pre">_static</span></tt>, and <tt class="docutils literal"><span class="pre">_images</span></tt>). These are also <em>output files</em>, they could be regarded as hidden folders, and should not be edited.</p>
+</div>
+</div>
+<div class="section" id="make-changes">
+<h2>Make changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
+<p>You can just write a page in simple text, perhaps with some explanatory pictures or screen-shots. Screen-shots are made in Sugar from the keyboard, by pressing the &#8220;Alt&#8221; key and 1.</p>
+<p>The page <a class="reference internal" href="restructuredtext.html"><em>Writing in reStructuredText</em></a> gives some guidance on the features of the markup language we use. Do not be concerned with complex features, plain, simply written text will be of most use to new learners.</p>
+<p>You will have your own ideas about what you would like to change and contribute. When you explain anything, which you have struggled to learn, it is likely to be of use to others. Seeing your work published gives quite a buzz!</p>
+<p>Here are a few exercises, which demonstrate making changes, and making pages.</p>
+<div class="section" id="tutorial-1-make-a-page">
+<h3>Tutorial 1 - Make a page<a class="headerlink" href="#tutorial-1-make-a-page" title="Permalink to this headline">¶</a></h3>
+<p>We are going to make a fresh page in reStructuredText. It will not at first be connected to the index, or contents page, of Help.</p>
+<ol class="arabic simple">
+<li>Open a new file in any text editor.</li>
+<li>Save the file with the name <tt class="docutils literal"><span class="pre">my_first.rst</span></tt> in <tt class="docutils literal"><span class="pre">~/help-activity/source</span></tt>. Type some text onto the page. In order to give the page a title we put a line of &#8220;=&#8221; &#8220;equal&#8221; signs above and below the title like this. Leave a line of white space, then type some text. This is an example:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>=============
+My first page
+=============
+
+I am going to learn to write a Help page.
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Now we want to convert our little page of text into an attractive page of Help. Open Terminal Activity (or any terminal emulator) and type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+make html
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>There will be about ten lines of output, there will be mention of errors. Read the error trace, expect to see an error line like the one below, but the final two lines here report a success.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>~/help-activity/source/my_first.rst:: WARNING: document isn&#39;t included in any toctree
+...
+build succeeded, 3 warnings.
+Build finished. The HTML pages are in ./html.
+</pre></div>
+</div>
+<p>The warning, &#8220;WARNING: document isn&#8217;t included in any toctree&#8221; is telling us the document is not linked into the Help index yet.</p>
+<p>Tutorial 2 will fix this. It does exist and you could see what it looks like if you can find it as described above with a browser in <tt class="docutils literal"><span class="pre">~/help-activity/html</span></tt>.</p>
+</div>
+<div class="section" id="tutorial-2-link-page-to-index">
+<h3>Tutorial 2 - Link page to index<a class="headerlink" href="#tutorial-2-link-page-to-index" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Backup your index file. Open Terminal Activity (or any terminal emulator) and type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+cd source
+cp index.rst index.rst.ori
+</pre></div>
+</div>
+<p>Above, we have changed directory into help-activity, changed directory into source, and copied <tt class="docutils literal"><span class="pre">index.rst</span></tt> to a new file named <tt class="docutils literal"><span class="pre">index.rst.ori</span></tt></p>
+<ol class="arabic simple" start="2">
+<li>Before proceeding make sure you are familiar with how to restore your index from the backup, in case you damage your Help index.</li>
+<li>Open <tt class="docutils literal"><span class="pre">~/help-activity/source/index.rst</span></tt> with a text editor. Notice the line spacing (lines of white space especially) and indents. They are very important to maintain.</li>
+<li>Scroll down <tt class="docutils literal"><span class="pre">index.rst</span></tt> right to the bottom of the page. Put the cursor at the front of the last line. Using the arrow keys you will see that the indent is 4 &#8220;spaces&#8221;, it is not &#8220;Tab&#8221;.</li>
+<li>Put the cursor at the end of the last line. Press <em>Enter</em>, press space bar 4 times, and enter the file name you used above <tt class="docutils literal"><span class="pre">my_page.rst</span></tt>. Use &#8220;Enter&#8221; and the space bar so that you exactly copy the indentation, and line spacing as used in the other entries.</li>
+<li>Double check your changes to <tt class="docutils literal"><span class="pre">index.rst</span></tt> and save your changes.</li>
+<li>Now we want to convert our index into HTML. Open Terminal Activity (or any terminal emulator) and type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+make html
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li>The newly changed index page will now display in Help, or in your browser, once you reload the page. In Sugar you click with the secondary button, and select reload, or in a browser pointing to <tt class="docutils literal"><span class="pre">~/help-activity/html/index.html</span></tt> press the reload button. In the index, or contents page, the link to your new page can be clicked to open your page &#8220;my_page.html&#8221;</li>
+</ol>
+</div>
+<div class="section" id="tutorial-3-adding-an-image">
+<h3>Tutorial 3 - Adding an image<a class="headerlink" href="#tutorial-3-adding-an-image" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Open your existing page in any text editor, or create and &#8220;Title&#8221; a new page, and add it to the bottom of the index.</li>
+<li>An image which is already in <tt class="docutils literal"><span class="pre">~/help-activity/images/</span></tt> can be included by typing this on to your page.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>.. image :: ../images/Help.png
+</pre></div>
+</div>
+<p>The &#8220;reference line&#8221; above needs a line of white space, above and below it.</p>
+<ol class="arabic simple" start="3">
+<li>You can add an image file in .jpg or .png format to <tt class="docutils literal"><span class="pre">~/help-activity/images/</span></tt>. It is best if the image does not exceed 800 pixels in width. It can be difficult to read around tall images. For this reason screen-shots 600 pixels in width may be a good compromise if the content is simple.</li>
+<li>If you add an image file <tt class="docutils literal"><span class="pre">my_image.png</span></tt>, made in, say, Paint to <tt class="docutils literal"><span class="pre">~/help-activity/images/</span></tt>, then you link it into your page with:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>.. image :: ../images/my_image.png
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Now we want to convert our page with an image into HTML. Open Terminal Activity (or any terminal emulator) and type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+make html
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>The newly changed page will now display in Help, or in your browser, once you reload the page.</li>
+</ol>
+</div>
+<div class="section" id="tutorial-4-write-or-improve-a-help-page">
+<h3>Tutorial 4 - Write or improve a Help page<a class="headerlink" href="#tutorial-4-write-or-improve-a-help-page" title="Permalink to this headline">¶</a></h3>
+<p>Decide whether you want to make a page from a fresh start, you could just start writing on a subject you know about. Alternatively experiment with improving an existing page. You could work from the text of an existing page (it might be this page) or a more simple page.</p>
+<ol class="arabic simple">
+<li>Open <tt class="docutils literal"><span class="pre">~/help-activity/source/index.rst</span></tt>.</li>
+<li>Put the cursor at the end of the last line. Press <em>Enter</em>, press space bar 4 times, and enter a new file name, perhaps, <tt class="docutils literal"><span class="pre">my_second.rst</span></tt>. Use &#8220;Enter&#8221; and the space bar so that you exactly copy the indentation, and line spacing as used in the other entries.</li>
+<li>Double check your changes to <tt class="docutils literal"><span class="pre">index.rst</span></tt> and save your changes.</li>
+<li>Open a new file in any text editor.</li>
+<li>Save the page as the new file name chosen above, perhaps, <tt class="docutils literal"><span class="pre">my_second.rst</span></tt>.</li>
+<li>Type in a title like this:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>==================
+How I changed Help
+==================
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li>Enter your text, and save your changes.</li>
+<li>Now we want to convert our page into HTML. Open Terminal Activity (or any terminal emulator) and type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+make html
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li>The newly generated page will now display in Help, or in your browser, once you reload the page.</li>
+<li>You can now go back to your page, and improve it.</li>
+<li>Again, write the changes to HTML version, with:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+make html
+</pre></div>
+</div>
+<ol class="arabic simple" start="12">
+<li>You have now written your first improved page for the Activity Help. We would love it if you could share it with the Sugar community!</li>
+</ol>
+</div>
+</div>
+<div class="section" id="contribute">
+<span id="id2"></span><h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
+<p>Once you are familiar with editing, adding a page, and making or improving a Help page, you could make a page with the intention of having it published in the next version of Help.</p>
+<p>You might write a tutorial on a subject you know about.</p>
+<p>In the next version of Activity Help, better &#8220;New to Sugar&#8221; pages might be included at the beginning of Help, as a quick introduction for new Sugar learners. Contributions to be considered would be welcome.</p>
+<p>Some Activities have no easy to find instructions. If you can write even a very short introduction, it could be very useful for other Sugar learners.</p>
+<p>The Sugarlabs wiki page <a class="reference external" href="http://wiki.sugarlabs.org/go/Activities/Help/Contribute">http://wiki.sugarlabs.org/go/Activities/Help/Contribute</a> might have some ideas on pages, which have been requested, or which others are working on and might appreciate collaboration.</p>
+<div class="section" id="what-to-do-with-your-finished-work">
+<h3>What to do with your finished work<a class="headerlink" href="#what-to-do-with-your-finished-work" title="Permalink to this headline">¶</a></h3>
+<p>First of all you might briefly contact gonzalo at laptop dot org by e-mail to tell him what you would like to contribute. If you write a new page , you can send him the page (as my_page.rst) as an attachment to an e-mail explaining briefly what is attached. If new images are linked into the page, send them too.</p>
+<p>If you have improved a page, the preferred method is to submit it as a &#8220;patch&#8221;.</p>
+</div>
+<div class="section" id="tutorial-5-generate-a-patch">
+<h3>Tutorial 5 - generate a patch<a class="headerlink" href="#tutorial-5-generate-a-patch" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Let&#8217;s say you decide to work on the Help page, &#8220;Switching Activities&#8221;. You might back up that page before you start. Open Terminal Activity (or any terminal emulator) and type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+cd source
+cp switching_activities.rst switching_activities.rst.ori
+</pre></div>
+</div>
+<p>Above, we have changed directory into help-activity, changed directory into source, and copied <tt class="docutils literal"><span class="pre">switching_activities.rst</span></tt> to a new file named <tt class="docutils literal"><span class="pre">switching_activities.rst.ori</span></tt></p>
+<ol class="arabic simple" start="2">
+<li>Make your changes to <tt class="docutils literal"><span class="pre">switching_activities.rst</span></tt>. Save your changes regularly, and check by running the <tt class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></tt> command that the page displays nicely. Once you are happy with your work, you can generate a patch like this:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>cd help-activity
+cd source
+diff -u switching_activities.rst.ori switching_activities.rst &gt; switching_activities.patch
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>The patch can now be sent as an e-mail attachment.</li>
+<li>For more information, in Terminal Activity (or any terminal emulator) type,</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>man diff
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-python"><div class="highlight"><pre>man patch
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<span id="id3"></span><h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p><img alt="more" src="_images/more.png" /> For more complete help on reStructuredText:</p>
+<p>Quick reStructuredText, <a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a>, is a cheat-sheet for reStructuredText.</p>
+<p>&#8220;reStructuredText Directives&#8221; <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">http://docutils.sourceforge.net/docs/ref/rst/directives.html</a> by David Goodger, March 2013.</p>
+<p>Sphinx reStructuredText Primer, <a class="reference external" href="http://sphinx-doc.org/rest.html">http://sphinx-doc.org/rest.html</a>, a brief introduction to reStructuredText concepts and syntax.</p>
+<p>Sphinx home page, <a class="reference external" href="http://sphinx-doc.org/index.html">http://sphinx-doc.org/index.html</a>.</p>
+<p>Another tutorial, <a class="reference external" href="http://matplotlib.org/sampledoc/">http://matplotlib.org/sampledoc/</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to edit Help and contribute</a><ul>
+<li><a class="reference internal" href="#create-a-development-environment">Create a development environment</a><ul>
+<li><a class="reference internal" href="#what-if-i-break-help">What if I break Help?</a></li>
+<li><a class="reference internal" href="#tutorial-0-browse-filesystem">Tutorial 0 - Browse filesystem</a></li>
+<li><a class="reference internal" href="#orientation">Orientation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-changes">Make changes</a><ul>
+<li><a class="reference internal" href="#tutorial-1-make-a-page">Tutorial 1 - Make a page</a></li>
+<li><a class="reference internal" href="#tutorial-2-link-page-to-index">Tutorial 2 - Link page to index</a></li>
+<li><a class="reference internal" href="#tutorial-3-adding-an-image">Tutorial 3 - Adding an image</a></li>
+<li><a class="reference internal" href="#tutorial-4-write-or-improve-a-help-page">Tutorial 4 - Write or improve a Help page</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contribute">Contribute</a><ul>
+<li><a class="reference internal" href="#what-to-do-with-your-finished-work">What to do with your finished work</a></li>
+<li><a class="reference internal" href="#tutorial-5-generate-a-patch">Tutorial 5 - generate a patch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="restructuredtext.html" title="Writing in reStructuredText"
+             >next</a></li>
+        <li class="right" >
+          <a href="credits_copyright.html" title="Credits and Copyright"
+             >previous</a> |</li>
+        <li><a href="index.html">Sugar 0.106 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, SugarLabs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
